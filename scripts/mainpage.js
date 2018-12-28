@@ -1,4 +1,4 @@
-var server = "http://109.194.127.189:8123";
+var server = "https://109.194.127.189:8123";
 var jsonresponse
 var userName;
 var allarticles
