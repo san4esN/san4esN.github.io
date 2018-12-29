@@ -77,11 +77,39 @@ footer {
 
 .fa-times{
     z-index: 15;
+    margin-bottom: -15px;
+    margin-left: 337px;
+}
+
+.col-sm-4 {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 360px;
+    margin-bottom: 35px;
+    max-width: 380px;
+    max-height: 360px;
+}
+
+.delBtn{
+    
+}
+
+li{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.liButtons{
+    display: flex;
+    flex-direction: column;
 }
 
 .art-container{
     display: flex;
     background-color: #eee;
+    margin-bottom: 10px;
+    align-items: baseline;
 }
 
 .art-container_img-container{
