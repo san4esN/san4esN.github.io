@@ -116,7 +116,6 @@ function addArticleOnList(articles) {
     var dropdown = document.getElementById(categoryid);
     var Li = document.createElement("li");
     var elA = document.createElement("a");
-    let DelBtn = document.createElement("button");
     Li.id = articles[i].id;
     /*elA.onclick=(e)=>{
       console.log(e.target.parentElement.id+" was clicked");
@@ -127,15 +126,7 @@ function addArticleOnList(articles) {
     elA.classList.add("test");
     elA.classList.add("article");
     elA.textContent = articles[i].header;
-    DelBtn.classList.add("delBtn");
-    DelBtn.classList.add("btn");
-    DelBtn.innerText = "Del";
-    DelBtn.onclick = deleteArt;
-    let role = localStorage.getItem("role");
-    if (role === null || role === readerRole)
-      DelBtn.classList.add("hidden");
     Li.appendChild(elA);
-    Li.appendChild(DelBtn);
     dropdown.insertBefore(Li, dropdown.childNodes[dropdown.childNodes.length - 1]);
     /*if (dropdown.childElementCount >= 4 && dropdown.lastElementChild.childElementCount > 1)
       dropdown.insertBefore(Li, dropdown.childNodes[dropdown.childElementCount]);
