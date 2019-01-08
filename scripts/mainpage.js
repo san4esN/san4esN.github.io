@@ -115,19 +115,6 @@ function deleteCat(event) {
   // sentCatToDel(delCat);
 }
 
-function sentCatToDel(categories) {
-  let xmlhttp = new XMLHttpRequest();
-  let string = server + "/deleteCats";
-  xmlhttp.open("POST", string, true);
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {}
-  }
-  xmlhttp.setRequestHeader("token", localStorage.getItem("tokenArticles"));
-  xmlhttp.send(JSON.stringify(
-    categories
-  ));
-}
-
 //Отобразить статьи в категории
 function addArticleOnList(articles) {
   if (articles === null)
@@ -163,75 +150,6 @@ function addArticleOnList(articles) {
     else
       dropdown.appendChild(Li);*/
   }
-}
-
-function deleteArt(event) {
-  del(event.target.parentElement.id)
-}
-
-function delFromMainPage(event) {
-  curid = event.target.parentElement.children[1].id;
-  let elemt = document.getElementById(curid)
-  elemt.parentElement.removeChild(elemt);
-  if (document.getElementById(curid) !== null) {
-    document.getElementById(curid).parentElement.parentElement.removeChild(document.getElementById(curid).parentElement);
-    for (let i = 0; i < allarticles.length; i++) {
-      let element = allarticles[i];
-      if (element.id === curid) {
-        allarticles = allarticles.filter(function (item) {
-          return item.id !== element.id
-        })
-        sentArtToDel([element]);
-        break;
-      }
-    }
-  }
-  else
-  {
-    sentArtToDel([{id:curid,pic:"",header:"",content:"",catid:"",views:0}]);
-  }
-  /*if (currentArticle !== null && currentArticle!==undefined && currentArticle.id === curid) {
-    changeMainPage();
-  }*/
-}
-
-function del(curid) {
-  let elemt = document.getElementById(curid)
-  elemt.parentElement.removeChild(elemt);
-  if (document.getElementById(curid) !== null) {
-    document.getElementById(curid).parentElement.removeChild(document.getElementById(curid));
-    for (let i = 0; i < allarticles.length; i++) {
-      let element = allarticles[i];
-      if (element.id === curid) {
-        allarticles = allarticles.filter(function (item) {
-          return item.id !== element.id
-        })
-        sentArtToDel([element]);
-        break;
-      }
-    }
-  }
-  else
-  {
-    sentArtToDel([{id:curid,pic:"",header:"",content:"",catid:"",views:0}]);
-  }
-  if (currentArticle !== null && currentArticle!==undefined && currentArticle.id === curid) {
-    changeMainPage();
-    ChangeButtonName();
-  }
-}
-
-function sentArtToDel(articles) {
-  let xmlhttp = new XMLHttpRequest();
-  let string = server + "/deleteArts";
-  xmlhttp.open("POST", string, true);
-  xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {}
-  }
-  xmlhttp.setRequestHeader("token", localStorage.getItem("tokenArticles"));
-  xmlhttp.send(JSON.stringify(
-    articles
-  ));
 }
 
 //Добавление кнопок для добавления статей и категорий
@@ -847,12 +765,6 @@ function showPic(event) {
 
 element = document.getElementById("example-search-input")
 element.oninput = searchOnInput;
-element = document.querySelector("#entrebtn");
-element.onclick = login;
-element = document.querySelector("#regisbtn");
-element.onclick = registration;
-element = document.querySelector("#logoutbtn");
-element.onclick = logout;
 element = document.querySelector("#changebtn");
 element.onclick = changeArticle;
 element = document.querySelector("#savebtn");
@@ -863,8 +775,6 @@ element.onclick = cancelSave;
 element.onclick = addImage;*/
 element = document.querySelector("#back");
 element.onclick = back;
-element = document.querySelector("#vk");
-element.onclick = VKRegistration;
 window.onbeforeunload = exit;
 
 var control = document.getElementById("file");
