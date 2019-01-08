@@ -434,7 +434,6 @@ function addArticleInPage(article) {
   let role = localStorage.getItem("role");
   if(role === null || role ===readerRole)
     icon.classList.add("hidden");
-  icon.onclick = delFromMainPage;
   //column.appendChild(icon);
   var imgDiv = document.createElement("div");
   imgDiv.classList.add("panel-body");
