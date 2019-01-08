@@ -769,7 +769,7 @@ control.addEventListener("change", function (event) {
 }, false);
 
 
-//getTree();
+getTree();
 getMainArticles();
 response = VK.Auth.getLoginStatus(function (response) {
   let e = response;
