@@ -61,7 +61,6 @@ function addNewList(name, idParent, idChild) {
   var elA = document.createElement("a");
   var elSpan = document.createElement("span");
   var elementUL = document.createElement("ul");
-  let DelBtn = document.createElement("button");
   elSpan.classList.add("caret");
   elA.href = "#";
   elA.tabIndex = "-1";
@@ -71,16 +70,9 @@ function addNewList(name, idParent, idChild) {
   elementUL.classList.add("dropdown-menu");
   elementUL.id = idChild;
   elA.appendChild(elSpan);
-  DelBtn.classList.add("delBtn");
-  DelBtn.classList.add("btn");
-  DelBtn.onclick = deleteCat;
-  DelBtn.innerText = "Del";
   let role = localStorage.getItem("role");
-  if (role === null || role === readerRole)
-    DelBtn.classList.add("hidden");
   Li.appendChild(elA);
   Li.appendChild(elementUL);
-  Li.appendChild(DelBtn);
   dropdown.insertBefore(Li, dropdown.childNodes[0]);
 }
 
